@@ -1,56 +1,155 @@
-
+/* GENEL */
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif;
-  background: #f4faff;
-  scroll-behavior: smooth;
+  font-family: 'Comic Sans MS', sans-serif;
+  background: linear-gradient(to bottom right, #d0f0fd, #ffffff);
+  color: #333;
 }
 
+/* HEADER */
 header {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  background: linear-gradient(to right, #00c6ff, #0072ff);
   color: white;
-  padding: 1rem;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 40px 20px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-nav a {
-  margin: 0 10px;
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.3s;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #ffdd57;
+  color: #333;
+}
+
+/* GİRİŞ BÖLÜMÜ */
+.intro {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.intro h2 {
+  font-size: 2.5em;
+  color: #0072ff;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.intro button {
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: #ffdd57;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.intro button:hover {
+  background-color: #ffc400;
+  transform: scale(1.05);
+}
+
+/* KARTLAR */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 10%;
+  flex-wrap: wrap;
 }
 
 .card {
   background: white;
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 800px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   border-radius: 20px;
-  transform: perspective(600px) rotateX(0deg);
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: perspective(600px) rotateX(2deg);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1.03);
 }
 
-img {
-  max-width: 100%;
-  border-radius: 10px;
+.card h3 {
+  color: #0072ff;
+  margin-bottom: 10px;
 }
 
+/* NEDEN BİZ? */
+.mission {
+  background-color: #fdf8e6;
+  padding: 40px 10%;
+  border-radius: 30px;
+  margin: 40px 5%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mission h2 {
+  text-align: center;
+  color: #0072ff;
+  margin-bottom: 20px;
+}
+
+.mission ul {
+  list-style: none;
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mission li {
+  background-color: #fff;
+  padding: 15px 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #e0f7fa;
-  font-size: 0.9em;
+  padding: 20px;
+  background-color: #0072ff;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 60px;
 }

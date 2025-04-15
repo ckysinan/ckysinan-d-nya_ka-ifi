@@ -1,51 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dünya Kaşifi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dünya Kaşifi | Ana Sayfa</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- ÜST KISIM -->
   <header>
     <h1>Dünya Kaşifi</h1>
+    <p>Keşfet, Öğren, Eğlen!</p>
     <nav>
-      <a href="#hakkinda">Hakkında</a>
-      <a href="#ozellikler">Özellikler</a>
-      <a href="#gorseller">Görseller</a>
-      <a href="#iletisim">İletişim</a>
+      <ul>
+        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="about.html">Proje</a></li>
+        <li><a href="reports.html">Raporlar</a></li>
+        <li><a href="usecase.html">Diyagramlar</a></li>
+        <li><a href="games.html">Mini Oyunlar</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="hakkinda" class="card">
-    <h2>Hakkında</h2>
-    <p>Dünya Kaşifi, çocuklar için artırılmış gerçeklik temelli eğlenceli bir mobil öğrenme deneyimidir.</p>
-  </section>
+  <!-- ANA İÇERİK -->
+  <main>
+    <section class="intro">
+      <h2>Macera Başlıyor!</h2>
+      <p>Dünya Kaşifi ile çocuklar, artırılmış gerçeklik destekli, eğitici ve eğlenceli bir yolculuğa çıkıyor!</p>
+      <button onclick="location.href='about.html'">Projeye Göz At</button>
+    </section>
 
-  <section id="ozellikler" class="card">
-    <h2>Özellikler</h2>
-    <ul>
-      <li>Avatar oluşturma</li>
-      <li>Mini oyunlar ve görevler</li>
-      <li>3D haritalar ve AR deneyimi</li>
-      <li>Kültürel maceralar</li>
-    </ul>
-  </section>
+    <section class="cards">
+      <div class="card">
+        <h3>🎨 Avatar Oluştur</h3>
+        <p>Kendi kaşifini tasarla: saç stilini, göz rengini, kıyafetlerini seç!</p>
+      </div>
+      <div class="card">
+        <h3>🌍 AR Keşif</h3>
+        <p>Dünyayı AR teknolojisiyle keşfet. Eğlenerek öğren!</p>
+      </div>
+      <div class="card">
+        <h3>🎮 Mini Oyunlar</h3>
+        <p>Harita dedektifi, matematik yarışması gibi eğlenceli oyunlarla öğren.</p>
+      </div>
+    </section>
 
-  <section id="gorseller" class="card">
-    <h2>Görseller</h2>
-    <img src="images/ornek1.png" alt="Örnek Görsel">
-  </section>
+    <section class="mission">
+      <h2>Neden Dünya Kaşifi?</h2>
+      <ul>
+        <li>👁 Göz sağlığına duyarlı tasarım</li>
+        <li>🧠 Eğlenceli ve öğretici içerik</li>
+        <li>👨‍👩‍👧 Ebeveyn kontrol özellikleri</li>
+      </ul>
+    </section>
+  </main>
 
-  <section id="iletisim" class="card">
-    <h2>İletişim</h2>
-    <p>info@dunyakasifi.com</p>
-  </section>
-
+  <!-- ALT KISIM -->
   <footer>
-    <p>© 2025 Dünya Kaşifi</p>
+    <p>&copy; 2025 Dünya Kaşifi. Tüm hakları saklıdır.</p>
   </footer>
 </body>
 </html>
