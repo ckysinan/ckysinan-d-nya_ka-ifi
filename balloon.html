@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Balon Patlatma Oyunu</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top, #c2f0f7, #ffffff);
+    }
+
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background-color: #ff6f61;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      cursor: pointer;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-120px); }
+    }
+
+    #scoreBoard {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea"></div>
+  <div id="scoreBoard">Skor: 0</div>
+
+  <script>
+    const gameArea = document.getElementById("gameArea");
+    const scoreBoard = document.getElementById("scoreBoard");
+    let score = 0;
+
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 90 + "vw";
+      balloon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+      balloon.addEventListener("click", () => {
+        balloon.remove();
+        score++;
+        scoreBoard.textContent = "Skor: " + score;
+      });
+
+      gameArea.appendChild(balloon);
+
+      setTimeout(() => {
+        if (gameArea.contains(balloon)) {
+          balloon.remove();
+        }
+      }, 6000);
+    }
+
+    setInterval(createBalloon, 800);
+  </script>
+</body>
+</html>
