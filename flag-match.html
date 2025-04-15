@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bayrak Eşleştirme Oyunu</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #game {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: auto;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .card {
+      width: 120px;
+      height: 120px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      user-select: none;
+    }
+
+    .card.matched {
+      background-color: #d4edda;
+      color: #155724;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌍 Bayrak Eşleştirme Oyunu</h1>
+  <div id="game"></div>
+
+  <script>
+    const pairs = [
+      { id: "🇹🇷", match: "Türkiye" },
+      { id: "🇫🇷", match: "Fransa" },
+      { id: "🇯🇵", match: "Japonya" },
+      { id: "🇧🇷", match: "Brezilya" },
+      { id: "🇺🇸", match: "Amerika" },
+      { id: "🇩🇪", match: "Almanya" }
+    ];
+
+    let cards = [];
+
+    // Kartları çift (bayrak + ülke adı) olarak diziye ekle
+    pairs.forEach(pair => {
+      cards.push({ value: pair.id, type: "flag", match: pair.match });
+      cards.push({ value: pair.match, type: "name", match: pair.match });
+    });
+
+    // Karıştır
+    cards = cards.sort(() => 0.5 - Math.random());
+
+    const gameBoard = document.getElementById("game");
+
+    let selected = [];
+    let matchedCount = 0;
+
+    cards.forEach((card, index) => {
+      const div = document.createElement("div");
+      div.classList.add("card");
+      div.dataset.match = card.match;
+      div.dataset.type = card.type;
+      div.innerText = "?";
+
+      div.addEventListener("click", function () {
+        if (div.classList.contains("matched") || selected.includes(div)) return;
+
+        div.innerText = card.value;
+        selected.push(div);
+
+        if (selected.length === 2) {
+          setTimeout(() => {
+            const [first, second] = selected;
+
+            if (
+              first.dataset.match === second.dataset.match &&
+              first.dataset.type !== second.dataset.type
+            ) {
+              first.classList.add("matched");
+              second.classList.add("matched");
+              matchedCount++;
+              if (matchedCount === pairs.length) {
+                alert("🎉 Tüm eşleşmeleri buldun! Tebrikler Kaşif!");
+              }
+            } else {
+              first.innerText = "?";
+              second.innerText = "?";
+            }
+
+            selected = [];
+          }, 600);
+        }
+      });
+
+      gameBoard.appendChild(div);
+    });
+  </script>
+</body>
+</html>
