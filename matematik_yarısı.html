@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gökyüzü Matematik Yarışı</title>
+    <style>
+        /* CSS Stilleri */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #87CEEB;
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .rocket {
+            position: absolute;
+            bottom: 20px;
+            width: 80px;
+            height: 120px;
+            background-color: #ff5733;
+            border-radius: 20px;
+            transition: bottom 0.5s;
+        }
+        .question {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .answers {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+        .answer-button {
+            background-color: #f39c12;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .answer-button:hover {
+            background-color: #e67e22;
+        }
+        .score {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="rocket"></div>
+        <div class="question" id="question">Matematik Sorusu</div>
+        <div class="answers">
+            <button class="answer-button" id="answer1"></button>
+            <button class="answer-button" id="answer2"></button>
+            <button class="answer-button" id="answer3"></button>
+            <button class="answer-button" id="answer4"></button>
+        </div>
+        <div class="score" id="score">Puan: 0</div>
+    </div>
+
+    <script>
+        // JavaScript Logic
+        let score = 0;
+        let correctAnswer;
+
+        const questionElement = document.getElementById("question");
+        const scoreElement = document.getElementById("score");
+        const rocket = document.querySelector(".rocket");
+
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 10) + 1;
+            const num2 = Math.floor(Math.random() * 10) + 1;
+            const operation = Math.random() < 0.5 ? "+" : "-";
+
+            const questionText = `${num1} ${operation} ${num2}`;
+            questionElement.textContent = questionText;
+
+            correctAnswer = operation === "+" ? num1 + num2 : num1 - num2;
+
+            const answers = [correctAnswer];
+            while (answers.length < 4) {
+                const randomAnswer = Math.floor(Math.random() * 20) + 1;
+                if (!answers.includes(randomAnswer)) {
+                    answers.push(randomAnswer);
+                }
+            }
+
+            answers.sort(() => Math.random() - 0.5);
+
+            document.getElementById("answer1").textContent = answers[0];
+            document.getElementById("answer2").textContent = answers[1];
+            document.getElementById("answer3").textContent = answers[2];
+            document.getElementById("answer4").textContent = answers[3];
+
+            document.getElementById("answer1").onclick = () => checkAnswer(answers[0]);
+            document.getElementById("answer2").onclick = () => checkAnswer(answers[1]);
+            document.getElementById("answer3").onclick = () => checkAnswer(answers[2]);
+            document.getElementById("answer4").onclick = () => checkAnswer(answers[3]);
+        }
+
+        function checkAnswer(selectedAnswer) {
+            if (selectedAnswer === correctAnswer) {
+                score++;
+                rocket.style.bottom = `${20 + (score * 10)}px`; // Uçuş yüksekliği
+                alert("Doğru cevap!");
+            } else {
+                score = Math.max(0, score - 1); // Yanlış cevapta azalma
+                alert("Yanlış cevap! Tekrar deneyin.");
+            }
+            scoreElement.textContent = `Puan: ${score}`;
+            generateQuestion();
+        }
+
+        generateQuestion(); // Başlangıç sorusu
+
+    </script>
+
+</body>
+</html>
