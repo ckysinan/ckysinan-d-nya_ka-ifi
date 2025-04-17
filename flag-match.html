@@ -4,179 +4,193 @@
 <head>
     <meta charset="UTF-8" />
     <title>Bayrak Eşleştirme Oyunu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            text-align: center;
-            padding: 20px;
-            transition: background-color 1s ease;
-            background-color: #f7f7f7;
-            margin: 0;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
-        }
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #0575a2, #f1da36);
+    min-height: 100vh;
+    transition: background-color 1s ease;
+}
 
-        #levelSelection {
-            margin-bottom: 20px;
-        }
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 2em;
+}
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            margin: 5px;
-            transition: background-color 0.3s;
-        }
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #444;
+}
 
-        /* Kolay Seviye Rengi */
-        .easy button {
-            background-color: #ff7e5f;
-        }
+#levelSelection {
+    margin-bottom: 20px;
+}
 
-        .easy button:hover {
-            background-color: #feb47b;
-        }
+button {
+    color: rgb(255, 255, 255);
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 8px;
+    transition: background-color 0.3s;
+    background-color: #333;
+}
 
-        /* Orta Seviye Rengi */
-        .medium button {
-            background-color: #4ca1af;
-        }
+.easy button {
+    background-color: rgb(94, 59, 25); /* Kolay için kırmızımsı ton */
+}
 
-        .medium button:hover {
-            background-color: #c4e0e5;
-        }
+.easy button:hover {
+    background-color: grey;
+}
 
-        /* Zor Seviye Rengi */
-        .hard button {
-            background-color: #2c3e50;
-        }
+.medium button {
+    background-color:rgb(94, 59, 25); /* Orta için mavi tonları */
+}
 
-        .hard button:hover {
-            background-color: #34495e;
-        }
+.medium button:hover {
+    background-color:grey  ;
+}
 
-        /* Kolay Seviye Alanı */
-        .easy #game {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-            max-width: 500px;
-            margin: auto;
-        }
+.hard button {
+    background-color:rgb(94, 59, 25); /* Zor için koyu tonlar */
+}
 
-        /* Orta Seviye Alanı */
-        .medium #game {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-            max-width: 700px;
-            margin: auto;
-        }
+.hard button:hover {
+    background-color:grey ;
+}
 
-        /* Zor Seviye Alanı */
-        .hard #game {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+#game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Her satırda 4 kart */
+    gap: 5px; /* Kartlar arasındaki boşluk */
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+    max-width: 1000px;
+    overflow: hidden; /* Kartlar taşmasın */
+}
 
-        .card {
-            width: 120px;
-            height: 120px;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            user-select: none;
-        }
+.card {
+    background-color: #f6f6f6;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px; /* Kart yazı boyutunu daha da küçülttük */
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+    height: 60px; /* Kart boyutunu küçülttük */
+    width: 95%;
+}
 
-        .card.matched {
-            cursor: default;
-        }
+.card:hover {
+    transform: scale(1.05);
+}
 
-        .card:hover {
-            transform: scale(1.05);
-        }
+.card.matched {
+    cursor: default;
+}
 
-        .easy {
-            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Yaz teması */
-        }
+.easy .card.matched {
+    background-color: #d3fcff; /* Kolay için açık kırmızımsı ton */
+    color: #e63946;
+}
 
-        .medium {
-            background: linear-gradient(to right, #4ca1af, #c4e0e5); /* Kış teması */
-        }
+.medium .card.matched {
+    background-color: #b0cee6; /* Orta için açık mavi ton */
+    color: #0077b6;
+}
 
-        .hard {
-            background: linear-gradient(to right, #2c3e50, #34495e); /* Koyu tema */
-        }
+.hard .card.matched {
+    background-color: #f0d9e4; /* Zor için açık mavi-gri ton */
+    color: #1d3557;
+}
 
-        /* Kutlama Animasyonu */
-        @keyframes celebration {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+@keyframes celebration {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
-        .celebration {
-            animation: celebration 1s ease-out forwards;
-        }
+.celebration {
+    animation: celebration 1s ease-out forwards;
+}
 
-        /* Kolay Seviye Eşleşen Kart Rengi */
-        .easy .card.matched {
-            background-color: #d4edda; /* Yeşil renk */
-            color: #155724;
-        }
+/* Responsive grid column setup */
+@media (max-width: 800px) {
+    #game {
+        grid-template-columns: repeat(3, 1fr); /* Küçük ekranlarda 3 kart */
+    }
 
-        /* Orta Seviye Eşleşen Kart Rengi */
-        .medium .card.matched {
-            background-color: #fff3cd; /* Sarı renk */
-            color: #856404;
-        }
+    .card {
+        height: 70px; /* Boyut küçültüldü */
+        font-size: 16px; /* Yazı boyutu küçültüldü */
+    }
+}
 
-        /* Zor Seviye Eşleşen Kart Rengi */
-        .hard .card.matched {
-            background-color: #cce5ff; /* Mavi renk */
-            color: #004085;
-        }
-    </style>
+@media (max-width: 600px) {
+    #game {
+        grid-template-columns: repeat(2, 1fr); /* Daha küçük ekranlarda 2 kart */
+    }
+
+    .card {
+        height: 60px; /* Boyut küçültüldü */
+        font-size: 14px; /* Yazı boyutu küçültüldü */
+    }
+}
+
+@media (max-width: 400px) {
+    #game {
+        grid-template-columns: 1fr; /* Çok küçük ekranlarda 1 kart */
+    }
+
+    .card {
+        height: 50px; /* Boyut küçültüldü */
+        font-size: 12px; /* Yazı boyutu küçültüldü */
+    }
+}
+
+  </style>
+  
+
 </head>
 
 <body>
     <h1>🌍 Bayrak Eşleştirme Oyunu</h1>
-    <div id="levelSelection">
-        <button class="easy" onclick="startGame(3)">Kolay</button>
-        <button class="medium" onclick="startGame(4)">Orta</button>
-        <button class="hard" onclick="startGame(5)">Zor</button>
-    </div>
+    <div id="description">
+      🌈 Renkli bayrakları eşleştir, ülkeleri keşfet! <br>
+      Eğlenceli ve öğretici bir macera seni bekliyor! 🧠🗺️
+  </div>
+  <div id="levelSelection">
+      <button class="easy" onclick="startGame(3)">🟢 Kolay</button>
+      <button class="medium" onclick="startGame(4)">🟡 Orta</button>
+      <button class="hard" onclick="startGame(5)">🔴 Zor</button>
+  </div>
+   
     <div id="game"></div>
 
     <script>
@@ -206,6 +220,7 @@
             matchedCount = 0;
             selected = [];
             cards = [];
+
             switch (level) {
                 case 3:
                     currentTheme = 'easy';
@@ -217,6 +232,7 @@
                     currentTheme = 'hard';
                     break;
             }
+
             document.body.className = currentTheme;
 
             let pairsToUse = [];
@@ -249,7 +265,7 @@
                 div.addEventListener("click", function () {
                     if (div.classList.contains("matched") || selected.includes(div)) return;
 
-                    div.innerText = card.type === "flag" ? card.value : card.value;
+                    div.innerText = card.value;
                     selected.push(div);
 
                     if (selected.length === 2) {
@@ -260,13 +276,9 @@
                                 first.dataset.match === second.dataset.match &&
                                 first.dataset.type !== second.dataset.type
                             ) {
-                                first.classList.add("matched");
-                                second.classList.add("matched");
+                                first.classList.add("matched", "celebration");
+                                second.classList.add("matched", "celebration");
                                 matchedCount++;
-
-                                // Kutlama animasyonu
-                                first.classList.add("celebration");
-                                second.classList.add("celebration");
 
                                 if (matchedCount === pairsToUse.length) {
                                     alert("🎉 Tüm eşleşmeleri buldun! Tebrikler Kaşif!");
