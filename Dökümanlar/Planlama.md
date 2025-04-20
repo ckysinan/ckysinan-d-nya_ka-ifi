@@ -1,4 +1,4 @@
-    Dünya Kaşifi – Proje Planlama Raporu
+  Dünya Kaşifi – Proje Planlama Raporu
 	
 # Vizyon #
    
