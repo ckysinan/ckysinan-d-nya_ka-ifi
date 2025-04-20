@@ -20,16 +20,13 @@
 | 🧭 Keşif Ekipmanları              | Harita, pusula, kamera gibi eğitici araçlar. |
 | 🧠 Eğitimsel Mini Oyunlar         | Balon patlatma, bayrak eşleştirme, harita bulmaca ve daha fazlası. |
 | 📷 AR Desteği                    | Gerçek dünya ile etkileşimli kültürel objeler. |
-| 🎖️ Görev ve Ödül Sistemi         | Başarıya göre puan, rozet ve yeni ekipman kazanma. |
 | 👨‍👩‍👧 Ebeveyn Modülü              | Ekran süresi takibi, içerik sınırlama. |
 
 ---
 
 ## 🛠️ Teknolojiler
 
-- HTML, CSS, JavaScript
-- WebGL / Three.js (opsiyonel)
-- Unity (mobil oyunlar için)
+- HTML, CSS, JavaScri
 - GitHub Pages (web barındırma)
 - Word, Draw.io, Lucidchart (dokümantasyon & UML)
 
@@ -39,11 +36,11 @@
 
 | Oyun Adı               | Açıklama |
 |------------------------|----------|
-| 🎈 Balon Patlatma      | Harf ve kelime eşleme oyunu. |
+| 🎈 Balon Patlatma      | Eğlenceli interaktif Bir Oyun |
 | 🧩 Bayrak Eşleştirme   | Ülkeleri ve bayraklarını tanıma. |
 | 📍 Haritada Ülke Bulma | Coğrafya eğitimi için interaktif harita. |
-| 📸 AR Nesne Bulma      | Kamera ile kültürel obje keşfi. |
-| ⛺ Kamp Kurma Simülasyonu | Doğa eğitimi ve yön bulma. |
+| 🔍 kelime Bulmaca     |Harf ve kelime eşleme oyunu.  |
+| ⛺ Matematik Yarışı | Sayısal Zekayı geliştirme oynu. |
 
 ---
 
@@ -51,15 +48,13 @@
 
 ### Web Sitesi Üzerinden Kullanım:
 Uygulamanın demosuna şu adresten ulaşabilirsiniz:
-🔗 [GitHub Pages Üzerinden Aç](https://kullaniciadi.github.io/dunya-kasifi)
+🔗 [GitHub Pages Üzerinden Aç](https://ckysinan.github.io/ckysinan-d-nya_ka-ifi/)
 
 ### APK Dosyasını İndir:
 Mobil cihazlar için APK dosyasını aşağıdan indirebilirsiniz:
-📲 [Dünya Kaşifi APK](https://kullaniciadi.github.io/dunya-kasifi/dunya-kasifi.apk)
+📲 [Dünya Kaşifi APK](https://github.com/ckysinan/ckysinan-d-nya_ka-ifi/blob/main/D%C3%BCnya%20Ka%C5%9Fifi.apk)
 
-### Geliştirici Kurulumu (Manuel):
+### Proje Vido:
+Proje hakındaki detaylı anlatım :
+📲 [proje video](https://www.youtube.com/watch?v=RJweJs3CYeY&list=RDjQYekGnjL5E&index=27)
 
-```bash
-git clone https://github.com/kullaniciadi/dunya-kasifi.git
-cd dunya-kasifi
-# index.html üzerinden çalıştırın veya bir local server kullanın
