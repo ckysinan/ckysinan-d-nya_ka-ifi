@@ -56,7 +56,7 @@ Mobil cihazlar için APK dosyasını aşağıdan indirebilirsiniz:
 
 ### Proje Vido:
 Proje hakındaki detaylı anlatım :
-📲 [proje video](https://www.youtube.com/watch?v=RJweJs3CYeY&list=RDjQYekGnjL5E&index=27)
+📲 [proje video](https://www.youtube.com/watch?v=HKRwNq30-Ho)
 
 
 ### Trello:
