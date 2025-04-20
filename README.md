@@ -58,3 +58,8 @@ Mobil cihazlar için APK dosyasını aşağıdan indirebilirsiniz:
 Proje hakındaki detaylı anlatım :
 📲 [proje video](https://www.youtube.com/watch?v=RJweJs3CYeY&list=RDjQYekGnjL5E&index=27)
 
+
+### Trello:
+Projenin Trello Adresi  :
+🔗 [proje video](https://trello.com/b/0lANyZqN/dunya-kasifi)
+
