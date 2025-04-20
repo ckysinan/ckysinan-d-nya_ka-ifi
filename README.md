@@ -61,5 +61,5 @@ Proje hakındaki detaylı anlatım :
 
 ### Trello:
 Projenin Trello Adresi  :
-🔗 [proje video](https://trello.com/b/0lANyZqN/dunya-kasifi)
+🔗 [Trello Adresi](https://trello.com/b/0lANyZqN/dunya-kasifi)
 
